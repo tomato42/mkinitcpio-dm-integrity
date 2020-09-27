@@ -1,0 +1,7 @@
+#!/bin/bash
+
+run_hook() {
+    integrity.sh
+}
+
+# vim: set ft=sh ts=4 sw=4 et:

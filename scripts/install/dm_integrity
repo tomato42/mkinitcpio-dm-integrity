@@ -1,0 +1,29 @@
+#!/bin/bash
+
+build() {
+    add_module dm_integrity
+    add_module dm_bufio
+    add_module dm_mod
+
+    add_binary integritysetup
+    # We need cryptsetup to make the shutdown script deactivate integrity
+    # volumes
+    add_binary cryptsetup
+
+    add_file /etc/integrity.sh /bin
+
+    add_runscript
+}
+
+help() {
+    cat <<HELPEOF
+This hook loads the necessary files for operation of the dm_integrity volumes.
+This hook requires the /etc/integrity.sh to define which volumes to mount
+with what options (hash algorithms).
+You must also include the shutdown hook in the initramfs to cleanly unmount
+the volumes on shutdown.
+HELPEOF
+
+}
+
+# vim: set ft=sh ts=4 sw=4 et:
