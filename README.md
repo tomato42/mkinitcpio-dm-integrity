@@ -16,3 +16,4 @@ are available for MD-RAID or LVM2 with the root file system.
    array after the `block` and before the `mdadm_udev` hooks.
    Also add the `shutdown` hook to make sure the devices are orderly stopped
    on power-off
+6. Build the new initramfs: `mkinitcpio -P`
